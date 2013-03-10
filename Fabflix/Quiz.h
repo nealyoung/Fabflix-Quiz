@@ -11,10 +11,11 @@
 
 @interface Quiz : NSObject
 
-@property (readonly, nonatomic) NSInteger numQuestions;
-@property (readonly, nonatomic) NSInteger numCorrect;
+@property (nonatomic) NSInteger numQuestions;
+@property (nonatomic) NSInteger numCorrect;
 
-- (NSString*)getQuestion;
+- (NSString *)getQuestion;
+- (NSArray *)getAnswers;
 - (BOOL)submitAnswer:(NSInteger)answerIndex;
 
 @end

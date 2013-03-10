@@ -39,7 +39,7 @@
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:quizView];
     
-    [self presentViewController:navigationController animated:YES completion:nil];    
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 @end

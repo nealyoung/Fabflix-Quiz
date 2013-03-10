@@ -29,8 +29,12 @@
     return self;
 }
 
-- (NSString*)getQuestion {
+- (NSString *)getQuestion {
     return currentQuestion.question;
+}
+
+- (NSArray *)getAnswers {
+    return currentQuestion.answers;
 }
 
 - (BOOL)submitAnswer:(NSInteger)answerIndex {
@@ -40,9 +44,12 @@
     // Generate the next question
     [self nextQuestion];
     
+    // Increment total number of questions
+    self.numQuestions++;
+    
     if (correctAnswer) {
         // Increment number of correct questions
-        _numCorrect++;
+        self.numCorrect++;
         return true;
     } else {
         return false;
@@ -54,9 +61,6 @@
     // Generate questions
     
     currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"Sup" answers:[NSArray arrayWithObjects:@"420", @"NTMA", @"LGM", @"JOOS", nil] answerIndex:0];
-    
-    // Increment total number of questions
-    _numQuestions++;
 }
 
 @end
