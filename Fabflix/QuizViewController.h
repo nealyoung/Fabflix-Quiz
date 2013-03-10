@@ -11,6 +11,10 @@
 
 @interface QuizViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UILabel *label;
+@property (strong, nonatomic) IBOutlet UILabel *questionLabel;
+@property (strong, nonatomic) IBOutlet UILabel *timerLabel;
+@property (strong, nonatomic) IBOutlet UILabel *answerLabel;
+
+- (IBAction)selectAnswer:(id)sender;
 
 @end

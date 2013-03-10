@@ -41,8 +41,10 @@
     [invocation setSelector:@selector(updateTimer:)];
     
     timer = [NSTimer scheduledTimerWithTimeInterval:0.01 invocation:invocation repeats:YES];
-    
+    quiz = [[Quiz alloc] init];
     time = 0.0;
+    
+    self.questionLabel.text = quiz.getQuestion;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,9 +57,22 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)updateTimer:(NSTimer *)timer {
+- (void)updateTimer:(NSTimer *)fire {
     time += 0.01;
-    self.label.text = [NSString stringWithFormat:@"%.2f", time];
+    self.timerLabel.text = [NSString stringWithFormat:@"%.2f", time];
+    
+    if (time >= 300.0) {
+        [timer invalidate];
+    }
+}
+
+- (IBAction)selectAnswer:(id)sender {
+    NSInteger answer = [sender tag];
+    if ([quiz submitAnswer:answer]) {
+        self.answerLabel.text = @"Correct!";
+    } else {
+        self.answerLabel.text = @"Incorrect";
+    }
 }
 
 @end

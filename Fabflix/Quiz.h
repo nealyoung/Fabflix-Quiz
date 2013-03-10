@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "QuizQuestion.h"
 
 @interface Quiz : NSObject
 
