@@ -60,7 +60,7 @@
     // Do database stuffs here
     // Generate questions
     
-    currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"Sup" answers:[NSArray arrayWithObjects:@"420", @"NTMA", @"LGM", @"JOOS", nil] answerIndex:0];
+    currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"In what year was 'Titanic' released?" answers:[NSArray arrayWithObjects:@"1995", @"2002", @"1998", @"2006", nil] answerIndex:2];
 }
 
 @end
