@@ -58,12 +58,16 @@
 - (void)nextQuestion {
     // Do database stuffs here
     // Generate questions
-    int r = arc4random() % 2;
+    int r = arc4random() % 4;
     
-    if (r == 1) {
+    if (r == 0) {
         currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"In what year was 'Titanic' released?" answers:[NSArray arrayWithObjects:@"1995", @"2002", @"1998", @"2006", nil] answerIndex:2];
-    } else {
+    } else if (r == 1) {
+        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"420?" answers:[NSArray arrayWithObjects:@"Yup", @"Legalize It", @"69", @"NTMA", nil] answerIndex:1];
+    } else if (r == 2) {
         currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"Who directed 'Eurotrip'?" answers:[NSArray arrayWithObjects:@"Joel Schumacher", @"Jeff Schaffer", @"Jon Favreau", @"Ben Stiller", nil] answerIndex:1];
+    } else {
+        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"Was 2 bombs enough?" answers:[NSArray arrayWithObjects:@"Yup", @"Peach", @"LGM", @"Anime", nil] answerIndex:3];
     }
 }
 

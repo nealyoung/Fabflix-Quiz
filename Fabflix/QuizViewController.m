@@ -67,12 +67,12 @@
     time += 0.01;
     self.timerLabel.text = [NSString stringWithFormat:@"%d:%.2d", (int)time / 60, (int)time % 60];
     
-    if (time >= 65.0) {
+    if (time >= 6.0) {
         [timer invalidate];
         NSString *quizTitle = @"Quiz Finished!";
         NSString *quizMessage = [NSString stringWithFormat:@"You got %d out of %d questions correct", quiz.numCorrect, quiz.numQuestions];
         
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:quizTitle message:quizMessage delegate:nil cancelButtonTitle:@"Done" otherButtonTitles:nil];
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:quizTitle message:quizMessage delegate:nil cancelButtonTitle:@"Neat!" otherButtonTitles:nil];
         [message show];
         
         [self dismissViewController];
