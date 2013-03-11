@@ -35,7 +35,7 @@
     
     UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissViewController)];
     
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:.22 green:.22 blue:.22 alpha:1.0];
     self.navigationItem.leftBarButtonItem = cancel;
     self.navigationItem.title = @"Movie Quiz";
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"quiznavbar.png"]];

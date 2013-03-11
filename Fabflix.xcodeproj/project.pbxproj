@@ -13,6 +13,7 @@
 		0828CAE616ED983F0033B623 /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0828CAE416ED983F0033B623 /* navbar@2x.png */; };
 		0828CAE916EDA1940033B623 /* quiznavbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0828CAE716EDA1940033B623 /* quiznavbar.png */; };
 		0828CAEA16EDA1940033B623 /* quiznavbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0828CAE816EDA1940033B623 /* quiznavbar@2x.png */; };
+		0828CAED16EDC4030033B623 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0828CAEC16EDC4030033B623 /* BButton.m */; };
 		08A950EB16ED939E00AAEEE0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A950EA16ED939E00AAEEE0 /* Icon.png */; };
 		08A950ED16ED93A000AAEEE0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A950EC16ED93A000AAEEE0 /* Icon@2x.png */; };
 		08AA2ADA16EA715D00CADC66 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08AA2AD916EA715D00CADC66 /* UIKit.framework */; };
@@ -45,6 +46,8 @@
 		0828CAE416ED983F0033B623 /* navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar@2x.png"; sourceTree = "<group>"; };
 		0828CAE716EDA1940033B623 /* quiznavbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quiznavbar.png; sourceTree = "<group>"; };
 		0828CAE816EDA1940033B623 /* quiznavbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quiznavbar@2x.png"; sourceTree = "<group>"; };
+		0828CAEB16EDC4030033B623 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		0828CAEC16EDC4030033B623 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
 		08A950EA16ED939E00AAEEE0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		08A950EC16ED93A000AAEEE0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		08AA2AD616EA715D00CADC66 /* Fabflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fabflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +175,8 @@
 		0E2CC3CC16EC9EB100D20F51 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0828CAEB16EDC4030033B623 /* BButton.h */,
+				0828CAEC16EDC4030033B623 /* BButton.m */,
 				080CBB5D16EAB8AC00474315 /* Quiz.h */,
 				080CBB5E16EAB8AC00474315 /* Quiz.m */,
 				0E2CC3C816EC8F0800D20F51 /* QuizQuestion.h */,
@@ -276,6 +281,7 @@
 				0EEEDEEB16EA91950054F6E0 /* QuizViewController.m in Sources */,
 				080CBB5F16EAB8AC00474315 /* Quiz.m in Sources */,
 				0E2CC3CA16EC8F0800D20F51 /* QuizQuestion.m in Sources */,
+				0828CAED16EDC4030033B623 /* BButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

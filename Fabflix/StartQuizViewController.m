@@ -28,7 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationBarTitle.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar.png"]];
-
+    
+    self.startQuizButton.color = [UIColor colorWithRed:.22 green:.22 blue:.22 alpha:1.0];
 }
 
 - (void)didReceiveMemoryWarning {
