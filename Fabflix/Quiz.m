@@ -12,8 +12,6 @@
     QuizQuestion *currentQuestion;
 }
 
-- (void)nextQuestion;
-
 @end
 
 @implementation Quiz
@@ -44,9 +42,6 @@
 - (BOOL)submitAnswer:(NSInteger)answerIndex {
     // Check if the submitted answer is correct
     BOOL correctAnswer = (answerIndex == currentQuestion.answerIndex);
-
-    // Generate the next question
-    [self nextQuestion];
     
     // Increment total number of questions
     self.numQuestions++;
@@ -63,7 +58,13 @@
 - (void)nextQuestion {
     // Do database stuffs here
     // Generate questions
-    currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"In what year was 'Titanic' released?" answers:[NSArray arrayWithObjects:@"1995", @"2002", @"1998", @"2006", nil] answerIndex:2];
+    int r = arc4random() % 2;
+    
+    if (r == 1) {
+        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"In what year was 'Titanic' released?" answers:[NSArray arrayWithObjects:@"1995", @"2002", @"1998", @"2006", nil] answerIndex:2];
+    } else {
+        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"Who directed 'Eurotrip'?" answers:[NSArray arrayWithObjects:@"Joel Schumacher", @"Jeff Schaffer", @"Jon Favreau", @"Ben Stiller", nil] answerIndex:1];
+    }
 }
 
 @end

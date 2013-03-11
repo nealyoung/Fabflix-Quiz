@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *questionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timerLabel;
 @property (strong, nonatomic) IBOutlet UILabel *answerLabel;
+@property (strong, nonatomic) IBOutlet UILabel *scoreLabel;
 
 @property (strong, nonatomic) IBOutlet UIButton *answer0;
 @property (strong, nonatomic) IBOutlet UIButton *answer1;

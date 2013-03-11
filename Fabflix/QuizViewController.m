@@ -80,6 +80,8 @@
 }
 
 - (void)loadNextQuestion {
+    [quiz nextQuestion];
+    
     self.questionLabel.text = [quiz getQuestion];
     
     NSArray *answers = [quiz getAnswers];
@@ -101,6 +103,8 @@
         NSString *correctAnswer = [[quiz getAnswers] objectAtIndex:[quiz getAnswerIndex]];
         self.answerLabel.text = [NSString stringWithFormat:@"Incorrect, Correct Answer: %@", correctAnswer];
     }
+    
+    self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", quiz.numCorrect];
     
     [self loadNextQuestion];
 }

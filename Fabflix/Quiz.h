@@ -18,5 +18,6 @@
 - (NSArray *)getAnswers;
 - (NSInteger)getAnswerIndex;
 - (BOOL)submitAnswer:(NSInteger)answerIndex;
+- (void)nextQuestion;
 
 @end

@@ -10,4 +10,5 @@
 
 @interface StatsViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UINavigationItem *navigationBarTitle;
 @end
