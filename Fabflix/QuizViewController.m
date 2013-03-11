@@ -33,6 +33,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Set the view's background pattern
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    
+    // Set the color of the answer buttons
+    self.answer0.color = [UIColor colorWithRed:.27 green:.27 blue:.27 alpha:1.0];
+    self.answer1.color = [UIColor colorWithRed:.27 green:.27 blue:.27 alpha:1.0];
+    self.answer2.color = [UIColor colorWithRed:.27 green:.27 blue:.27 alpha:1.0];
+    self.answer3.color = [UIColor colorWithRed:.27 green:.27 blue:.27 alpha:1.0];
+    
+    // Set up the cancel button
     UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissViewController)];
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:.22 green:.22 blue:.22 alpha:1.0];
@@ -65,9 +75,9 @@
 
 - (void)updateTimer:(NSTimer *)fire {
     time += 0.01;
-    self.timerLabel.text = [NSString stringWithFormat:@"%d:%.2d", (int)time / 60, (int)time % 60];
+    self.timerLabel.text = [NSString stringWithFormat:@"Time: %d:%.2d", (int)time / 60, (int)time % 60];
     
-    if (time >= 6.0) {
+    if (time >= 180.0) {
         [timer invalidate];
         NSString *quizTitle = @"Quiz Finished!";
         NSString *quizMessage = [NSString stringWithFormat:@"You got %d out of %d questions correct", quiz.numCorrect, quiz.numQuestions];
@@ -101,7 +111,7 @@
     } else {
         self.answerLabel.textColor = [UIColor redColor];
         NSString *correctAnswer = [[quiz getAnswers] objectAtIndex:[quiz getAnswerIndex]];
-        self.answerLabel.text = [NSString stringWithFormat:@"Incorrect, Correct Answer: %@", correctAnswer];
+        self.answerLabel.text = [NSString stringWithFormat:@"Correct Answer: %@", correctAnswer];
     }
     
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", quiz.numCorrect];

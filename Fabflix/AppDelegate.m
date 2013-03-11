@@ -22,7 +22,7 @@
     
     [self.tabController setViewControllers:tabs];
     self.tabController.tabBar.backgroundImage = [UIImage imageNamed:@"TabBarBackground.png"];
-    self.tabController.tabBar.selectedImageTintColor = [UIColor whiteColor];
+    self.tabController.tabBar.selectedImageTintColor = [UIColor colorWithRed:.82 green:.82 blue:.82 alpha:1.0];
     
     self.window.rootViewController = self.tabController;
     [self.window makeKeyAndVisible];
