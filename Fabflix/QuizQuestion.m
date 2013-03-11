@@ -14,9 +14,9 @@
     self = [super init];
     
     if (self) {
-        self.question = question;
-        self.answers = answers;
-        self.answerIndex = answerIndex;
+        _question = question;
+        _answers = answers;
+        _answerIndex = answerIndex;
     }
     
     return self;

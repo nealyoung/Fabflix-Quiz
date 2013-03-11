@@ -71,4 +71,13 @@
     }
 }
 
+- (void)finish {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    NSInteger quizzesTaken = [prefs integerForKey:@"quizzesTaken"];
+    quizzesTaken++;
+    
+    [prefs setInteger:quizzesTaken forKey:@"quizzesTaken"];
+}
+
 @end

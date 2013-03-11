@@ -19,5 +19,6 @@
 - (NSInteger)getAnswerIndex;
 - (BOOL)submitAnswer:(NSInteger)answerIndex;
 - (void)nextQuestion;
+- (void)finish;
 
 @end

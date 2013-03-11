@@ -10,9 +10,9 @@
 
 @interface QuizQuestion : NSObject
 
-@property NSString *question;
-@property NSArray *answers;
-@property NSInteger answerIndex;
+@property (nonatomic, readonly) NSString *question;
+@property (nonatomic, readonly) NSArray *answers;
+@property (nonatomic, readonly) NSInteger answerIndex;
 
 - (id)initWithQuestion:(NSString *)question answers:(NSArray *)answers answerIndex:(NSInteger)answerIndex;
 
