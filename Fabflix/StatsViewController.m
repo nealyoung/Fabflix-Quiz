@@ -11,13 +11,13 @@
 @interface StatsViewController ()
 
 - (void)reloadStats;
+- (void)reset;
 
 @end
 
 @implementation StatsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
@@ -53,12 +53,41 @@
     // Show number of quizzes taken
     NSInteger quizzesTaken = [prefs integerForKey:@"quizzesTaken"];
     self.quizzesTakenLabel.text = [NSString stringWithFormat:@"Quizzes Taken: %d", quizzesTaken];
+    
+    // Show number of correct answers
+    NSInteger correctAnswers = [prefs integerForKey:@"correctAnswers"];
+    self.correctAnswersLabel.text = [NSString stringWithFormat:@"Correct Answers: %d", correctAnswers];
+    
+    // Show number of incorrect answers
+    NSInteger incorrectAnswers = [prefs integerForKey:@"incorrectAnswers"];
+    self.incorrectAnswersLabel.text = [NSString stringWithFormat:@"Incorrect Answers: %d", incorrectAnswers];
 }
 
+// Reset button pressed
 - (IBAction)resetStats:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm"
+                                                    message:@"Are you sure you want to reset your statistics?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Reset", nil];
+    
+    [alert show];
+}
+
+// Reset stats confirmation alert
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(buttonIndex == 1) {
+        [self reset];
+    }
+}
+
+- (void)reset {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
-    [prefs setInteger:0 forKey:@"quizzesTaken"];
+    [prefs removeObjectForKey:@"quizzesTaken"];
+    [prefs removeObjectForKey:@"correctAnswers"];
+    [prefs removeObjectForKey:@"incorrectAnswers"];
+    
     [self reloadStats];
 }
 

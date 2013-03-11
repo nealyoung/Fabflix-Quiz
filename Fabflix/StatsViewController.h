@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "BButton.h"
 
-@interface StatsViewController : UIViewController
+@interface StatsViewController : UIViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UINavigationItem *navigationBarTitle;
 @property (strong, nonatomic) IBOutlet UILabel *quizzesTakenLabel;
+@property (strong, nonatomic) IBOutlet UILabel *correctAnswersLabel;
+@property (strong, nonatomic) IBOutlet UILabel *incorrectAnswersLabel;
+
 @property (strong, nonatomic) IBOutlet BButton *resetStatsButton;
 
 - (IBAction)resetStats:(id)sender;

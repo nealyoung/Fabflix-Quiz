@@ -14,8 +14,6 @@
 		0828CAE916EDA1940033B623 /* quiznavbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0828CAE716EDA1940033B623 /* quiznavbar.png */; };
 		0828CAEA16EDA1940033B623 /* quiznavbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0828CAE816EDA1940033B623 /* quiznavbar@2x.png */; };
 		0828CAED16EDC4030033B623 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0828CAEC16EDC4030033B623 /* BButton.m */; };
-		08A950EB16ED939E00AAEEE0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A950EA16ED939E00AAEEE0 /* Icon.png */; };
-		08A950ED16ED93A000AAEEE0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A950EC16ED93A000AAEEE0 /* Icon@2x.png */; };
 		08AA2ADA16EA715D00CADC66 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08AA2AD916EA715D00CADC66 /* UIKit.framework */; };
 		08AA2ADC16EA715D00CADC66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08AA2ADB16EA715D00CADC66 /* Foundation.framework */; };
 		08AA2ADE16EA715D00CADC66 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08AA2ADD16EA715D00CADC66 /* CoreGraphics.framework */; };
@@ -27,6 +25,8 @@
 		08AA2AF016EA715D00CADC66 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08AA2AEF16EA715D00CADC66 /* Default-568h@2x.png */; };
 		08F8F99A16EDD8C200EF5C6E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F8F99816EDD8C200EF5C6E /* background.png */; };
 		08F8F99B16EDD8C200EF5C6E /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F8F99916EDD8C200EF5C6E /* background@2x.png */; };
+		08F8F99E16EE5ED500EF5C6E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F8F99C16EE5ED500EF5C6E /* Icon.png */; };
+		08F8F99F16EE5ED500EF5C6E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F8F99D16EE5ED500EF5C6E /* Icon@2x.png */; };
 		0E2CC3CA16EC8F0800D20F51 /* QuizQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E2CC3C916EC8F0800D20F51 /* QuizQuestion.m */; };
 		0EEEDEE016EA80940054F6E0 /* StartQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEEDEDE16EA80940054F6E0 /* StartQuizViewController.m */; };
 		0EEEDEE116EA80940054F6E0 /* StartQuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EEEDEDF16EA80940054F6E0 /* StartQuizViewController.xib */; };
@@ -50,8 +50,6 @@
 		0828CAE816EDA1940033B623 /* quiznavbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quiznavbar@2x.png"; sourceTree = "<group>"; };
 		0828CAEB16EDC4030033B623 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
 		0828CAEC16EDC4030033B623 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
-		08A950EA16ED939E00AAEEE0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
-		08A950EC16ED93A000AAEEE0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		08AA2AD616EA715D00CADC66 /* Fabflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fabflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AA2AD916EA715D00CADC66 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		08AA2ADB16EA715D00CADC66 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -67,6 +65,8 @@
 		08AA2AEF16EA715D00CADC66 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		08F8F99816EDD8C200EF5C6E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		08F8F99916EDD8C200EF5C6E /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		08F8F99C16EE5ED500EF5C6E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		08F8F99D16EE5ED500EF5C6E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		0E2CC3C816EC8F0800D20F51 /* QuizQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizQuestion.h; sourceTree = "<group>"; };
 		0E2CC3C916EC8F0800D20F51 /* QuizQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizQuestion.m; sourceTree = "<group>"; };
 		0EEEDEDD16EA80940054F6E0 /* StartQuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartQuizViewController.h; sourceTree = "<group>"; };
@@ -152,12 +152,12 @@
 				0EEEDEF616EA93B00054F6E0 /* stats@2x.png */,
 				0EEEDEF116EA93A80054F6E0 /* quiz.png */,
 				0EEEDEF216EA93A80054F6E0 /* quiz@2x.png */,
-				08A950EA16ED939E00AAEEE0 /* Icon.png */,
-				08A950EC16ED93A000AAEEE0 /* Icon@2x.png */,
 				08AA2AE116EA715D00CADC66 /* Fabflix-Info.plist */,
 				08AA2AE216EA715D00CADC66 /* InfoPlist.strings */,
 				08AA2AE516EA715D00CADC66 /* main.m */,
 				08AA2AE716EA715D00CADC66 /* Fabflix-Prefix.pch */,
+				08F8F99C16EE5ED500EF5C6E /* Icon.png */,
+				08F8F99D16EE5ED500EF5C6E /* Icon@2x.png */,
 				08AA2AEB16EA715D00CADC66 /* Default.png */,
 				08AA2AED16EA715D00CADC66 /* Default@2x.png */,
 				08AA2AEF16EA715D00CADC66 /* Default-568h@2x.png */,
@@ -264,14 +264,14 @@
 				0EEEDEF716EA93B00054F6E0 /* stats.png in Resources */,
 				0EEEDEF816EA93B00054F6E0 /* stats@2x.png in Resources */,
 				0815E22416ED7AB600D4FD09 /* TabBarBackground@2x.png in Resources */,
-				08A950EB16ED939E00AAEEE0 /* Icon.png in Resources */,
-				08A950ED16ED93A000AAEEE0 /* Icon@2x.png in Resources */,
 				0828CAE516ED983F0033B623 /* navbar.png in Resources */,
 				0828CAE616ED983F0033B623 /* navbar@2x.png in Resources */,
 				0828CAE916EDA1940033B623 /* quiznavbar.png in Resources */,
 				0828CAEA16EDA1940033B623 /* quiznavbar@2x.png in Resources */,
 				08F8F99A16EDD8C200EF5C6E /* background.png in Resources */,
 				08F8F99B16EDD8C200EF5C6E /* background@2x.png in Resources */,
+				08F8F99E16EE5ED500EF5C6E /* Icon.png in Resources */,
+				08F8F99F16EE5ED500EF5C6E /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +369,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fabflix/Fabflix-Prefix.pch";
 				INFOPLIST_FILE = "Fabflix/Fabflix-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -380,6 +381,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fabflix/Fabflix-Prefix.pch";
 				INFOPLIST_FILE = "Fabflix/Fabflix-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

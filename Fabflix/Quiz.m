@@ -61,23 +61,44 @@
     int r = arc4random() % 4;
     
     if (r == 0) {
-        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"In what year was 'Titanic' released?" answers:[NSArray arrayWithObjects:@"1995", @"2002", @"1998", @"2006", nil] answerIndex:2];
+        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"In what year was 'Titanic' released?"
+                                                         answers:[NSArray arrayWithObjects:@"1995", @"2002", @"1998", @"2006", nil]
+                                                     answerIndex:2];
     } else if (r == 1) {
-        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"420?" answers:[NSArray arrayWithObjects:@"Yup", @"Legalize It", @"69", @"NTMA", nil] answerIndex:1];
+        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"In what movie did Pierce Brosnan and Judy Dench appear together?"
+                                                         answers:[NSArray arrayWithObjects:@"Batman Begins", @"Alone in the Dark", @"Catwoman", @"Die Another Day", nil]
+                                                     answerIndex:3];
     } else if (r == 2) {
-        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"Who directed 'Eurotrip'?" answers:[NSArray arrayWithObjects:@"Joel Schumacher", @"Jeff Schaffer", @"Jon Favreau", @"Ben Stiller", nil] answerIndex:1];
+        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"Who directed 'Eurotrip'?"
+                                                         answers:[NSArray arrayWithObjects:@"Joel Schumacher", @"Jeff Schaffer", @"Jon Favreau", @"Ben Stiller", nil]
+                                                     answerIndex:1];
     } else {
-        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"Was 2 bombs enough?" answers:[NSArray arrayWithObjects:@"Yup", @"Peach", @"LGM", @"Anime", nil] answerIndex:3];
+        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"Who starred in 'Alexander'?"
+                                                         answers:[NSArray arrayWithObjects:@"Colin Farrell", @"Mel Gibson", @"Brad Pitt", @"Viggo Mortensen", nil]
+                                                     answerIndex:0];
     }
 }
 
 - (void)finish {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
+    // Update number of quizzes taken
     NSInteger quizzesTaken = [prefs integerForKey:@"quizzesTaken"];
     quizzesTaken++;
     
     [prefs setInteger:quizzesTaken forKey:@"quizzesTaken"];
+    
+    // Update number of correct answers
+    NSInteger correctAnswers = [prefs integerForKey:@"correctAnswers"];
+    correctAnswers += self.numCorrect;
+    
+    [prefs setInteger:correctAnswers forKey:@"correctAnswers"];
+    
+    // Update number of incorrect answers
+    NSInteger incorrectAnswers = [prefs integerForKey:@"incorrectAnswers"];
+    incorrectAnswers += (self.numQuestions - self.numCorrect);
+    
+    [prefs setInteger:incorrectAnswers forKey:@"incorrectAnswers"];
 }
 
 @end
