@@ -35,8 +35,10 @@
     
     UIBarButtonItem *cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissViewController)];
     
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationItem.leftBarButtonItem = cancel;
     self.navigationItem.title = @"Movie Quiz";
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"quiznavbar.png"]];
     
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(updateTimer:)]];
     [invocation setTarget:self];
@@ -92,9 +94,12 @@
     NSInteger answer = [sender tag];
     
     if ([quiz submitAnswer:answer]) {
+        self.answerLabel.textColor = [UIColor colorWithRed:0.1 green:0.65 blue:0.05 alpha:1.0];
         self.answerLabel.text = @"Correct!";
     } else {
-        self.answerLabel.text = @"Incorrect";
+        self.answerLabel.textColor = [UIColor redColor];
+        NSString *correctAnswer = [[quiz getAnswers] objectAtIndex:[quiz getAnswerIndex]];
+        self.answerLabel.text = [NSString stringWithFormat:@"Incorrect, Correct Answer: %@", correctAnswer];
     }
     
     [self loadNextQuestion];

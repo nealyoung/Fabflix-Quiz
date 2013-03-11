@@ -12,6 +12,7 @@
 @interface StartQuizViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIButton *startQuizButton;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navigationBarTitle;
 
 - (IBAction)startQuiz:(id)sender;
 

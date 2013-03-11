@@ -37,6 +37,10 @@
     return currentQuestion.answers;
 }
 
+- (NSInteger)getAnswerIndex {
+    return currentQuestion.answerIndex;
+}
+
 - (BOOL)submitAnswer:(NSInteger)answerIndex {
     // Check if the submitted answer is correct
     BOOL correctAnswer = (answerIndex == currentQuestion.answerIndex);
@@ -59,7 +63,6 @@
 - (void)nextQuestion {
     // Do database stuffs here
     // Generate questions
-    
     currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"In what year was 'Titanic' released?" answers:[NSArray arrayWithObjects:@"1995", @"2002", @"1998", @"2006", nil] answerIndex:2];
 }
 

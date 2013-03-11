@@ -21,6 +21,8 @@
     NSArray *tabs = [[NSArray alloc] initWithObjects: quizView, statsView, nil];
     
     [self.tabController setViewControllers:tabs];
+    self.tabController.tabBar.backgroundImage = [UIImage imageNamed:@"TabBarBackground.png"];
+    self.tabController.tabBar.selectedImageTintColor = [UIColor whiteColor];
     
     self.window.rootViewController = self.tabController;
     [self.window makeKeyAndVisible];
