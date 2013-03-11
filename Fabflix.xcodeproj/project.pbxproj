@@ -183,9 +183,9 @@
 		0EEEDEE716EA91550054F6E0 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
-				0EEEDEEA16EA91950054F6E0 /* QuizViewController.xib */,
-				0EEEDEDF16EA80940054F6E0 /* StartQuizViewController.xib */,
 				0EEEDEE416EA81BE0054F6E0 /* StatsViewController.xib */,
+				0EEEDEDF16EA80940054F6E0 /* StartQuizViewController.xib */,
+				0EEEDEEA16EA91950054F6E0 /* QuizViewController.xib */,
 			);
 			name = XIBs;
 			sourceTree = "<group>";

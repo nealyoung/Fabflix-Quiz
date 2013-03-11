@@ -1,5 +1,5 @@
 //
-//  QuizViewController.m
+//  StartQuizViewController.m
 //  Fabflix
 //
 //  Created by Nealon Young on 3/8/13.
