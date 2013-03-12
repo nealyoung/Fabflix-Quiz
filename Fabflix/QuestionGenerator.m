@@ -34,24 +34,43 @@
 - (QuizQuestion *)newQuestion {
     sqlite3_stmt *statement;
     
-    int r = arc4random() % 2;
+    int r = arc4random() % 1;
     
     if (r == 0) {
-        NSString *query = @"SELECT * FROM movies ORDER BY RANDOM() LIMIT 1;";
+        NSString *query = @"SELECT * FROM movies ORDER BY RANDOM() LIMIT 4;";
         
         if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
             while (sqlite3_step(statement) == SQLITE_ROW) {
                 char *titleChars = (char *)sqlite3_column_text(statement, 1);
                 char *directorChars = (char *)sqlite3_column_text(statement, 3);
-
-                NSString *title = [NSString stringWithUTF8String:titleChars];
-                NSString *director = [NSString stringWithUTF8String:directorChars];
                 
+                NSString *title = [NSString stringWithUTF8String:titleChars];
+                NSString *answer = [NSString stringWithUTF8String:directorChars];
+                
+                NSMutableArray *directorOptions = [[NSMutableArray alloc] init];
+                
+                for (int i = 0; i < 3; i++) {
+                    if (sqlite3_step(statement) == SQLITE_ROW) {
+                        directorChars = (char *)sqlite3_column_text(statement, 3);
+                        NSString *director = [NSString stringWithUTF8String:directorChars];
+                        
+                        [directorOptions addObject:director];
+                    } else {
+                        // If there are not enough movies in the database
+                        [directorOptions addObject:@"ERROR"];
+                    }
+                }
+                
+                
+                // Insert the correct answer at a random index
                 NSString *question = [NSString stringWithFormat:@"Who directed '%@'?", title];
-
+                
+                int answerIndex = arc4random() % 4;
+                [directorOptions insertObject:answer atIndex:answerIndex];
+                
                 QuizQuestion *quizQuestion = [[QuizQuestion alloc] initWithQuestion:question
-                                                                        answers:[NSArray arrayWithObjects:@"Ben Stiller", [NSString stringWithFormat:@"%@", director], @"Ben Stiller", @"Ben Stiller", nil]
-                                                                    answerIndex:1];
+                                                                            answers:directorOptions
+                                                                        answerIndex:answerIndex];
                 
                 sqlite3_finalize(statement);
 

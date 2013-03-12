@@ -7,6 +7,7 @@
 //
 
 #import "QuizViewController.h"
+#define TIME_LIMIT 30.0
 
 @interface QuizViewController () {
     NSTimer *timer;
@@ -80,7 +81,7 @@
     time += 0.01;
     self.timerLabel.text = [NSString stringWithFormat:@"Time: %d:%.2d", (int)time / 60, (int)time % 60];
     
-    if (time >= 4.0) {
+    if (time >= TIME_LIMIT) {
         [timer invalidate];
         [quiz finish];
         NSString *quizTitle = @"Quiz Finished!";
