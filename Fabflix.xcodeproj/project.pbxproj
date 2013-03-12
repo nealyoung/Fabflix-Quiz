@@ -14,6 +14,7 @@
 		0828CAE916EDA1940033B623 /* quiznavbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0828CAE716EDA1940033B623 /* quiznavbar.png */; };
 		0828CAEA16EDA1940033B623 /* quiznavbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0828CAE816EDA1940033B623 /* quiznavbar@2x.png */; };
 		0828CAED16EDC4030033B623 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0828CAEC16EDC4030033B623 /* BButton.m */; };
+		083A9C4116EEDCF60059017E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 083A9C4016EEDCF60059017E /* libsqlite3.dylib */; };
 		08AA2ADA16EA715D00CADC66 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08AA2AD916EA715D00CADC66 /* UIKit.framework */; };
 		08AA2ADC16EA715D00CADC66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08AA2ADB16EA715D00CADC66 /* Foundation.framework */; };
 		08AA2ADE16EA715D00CADC66 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08AA2ADD16EA715D00CADC66 /* CoreGraphics.framework */; };
@@ -50,6 +51,7 @@
 		0828CAE816EDA1940033B623 /* quiznavbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quiznavbar@2x.png"; sourceTree = "<group>"; };
 		0828CAEB16EDC4030033B623 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
 		0828CAEC16EDC4030033B623 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
+		083A9C4016EEDCF60059017E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		08AA2AD616EA715D00CADC66 /* Fabflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fabflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AA2AD916EA715D00CADC66 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		08AA2ADB16EA715D00CADC66 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				083A9C4116EEDCF60059017E /* libsqlite3.dylib in Frameworks */,
 				08AA2ADA16EA715D00CADC66 /* UIKit.framework in Frameworks */,
 				08AA2ADC16EA715D00CADC66 /* Foundation.framework in Frameworks */,
 				08AA2ADE16EA715D00CADC66 /* CoreGraphics.framework in Frameworks */,
@@ -118,6 +121,7 @@
 		08AA2AD816EA715D00CADC66 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				083A9C4016EEDCF60059017E /* libsqlite3.dylib */,
 				08AA2AD916EA715D00CADC66 /* UIKit.framework */,
 				08AA2ADB16EA715D00CADC66 /* Foundation.framework */,
 				08AA2ADD16EA715D00CADC66 /* CoreGraphics.framework */,
