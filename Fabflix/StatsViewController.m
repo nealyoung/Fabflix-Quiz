@@ -49,6 +49,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+// Reload the statistics displayed to the user
 - (void)reloadStats {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
@@ -69,7 +70,7 @@
         self.timePerQuestionLabel.text = [NSString stringWithFormat:@"Time per Question: 0.0 seconds"];
     }
     
-    // Show number of answers
+    // Show total number of answers
     self.answersLabel.text = [NSString stringWithFormat:@"Answers: %d", totalAnswers];
     
     // Show number of correct answers
@@ -92,6 +93,7 @@
     [alert show];
 }
 
+// Reset all statistics
 - (void)reset {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
