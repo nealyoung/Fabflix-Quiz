@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		080CBB5F16EAB8AC00474315 /* Quiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 080CBB5E16EAB8AC00474315 /* Quiz.m */; };
 		0815E22416ED7AB600D4FD09 /* TabBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0815E22316ED7AB600D4FD09 /* TabBarBackground@2x.png */; };
+		0819679D16EEE21A00B79831 /* QuestionGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0819679C16EEE21A00B79831 /* QuestionGenerator.m */; };
+		0819679F16EEE85700B79831 /* fabflix.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 0819679E16EEE85700B79831 /* fabflix.sqlite3 */; };
 		0828CAE516ED983F0033B623 /* navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0828CAE316ED983F0033B623 /* navbar.png */; };
 		0828CAE616ED983F0033B623 /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0828CAE416ED983F0033B623 /* navbar@2x.png */; };
 		0828CAE916EDA1940033B623 /* quiznavbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0828CAE716EDA1940033B623 /* quiznavbar.png */; };
@@ -45,6 +47,9 @@
 		080CBB5D16EAB8AC00474315 /* Quiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quiz.h; sourceTree = "<group>"; };
 		080CBB5E16EAB8AC00474315 /* Quiz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quiz.m; sourceTree = "<group>"; };
 		0815E22316ED7AB600D4FD09 /* TabBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarBackground@2x.png"; sourceTree = "<group>"; };
+		0819679B16EEE21A00B79831 /* QuestionGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionGenerator.h; sourceTree = "<group>"; };
+		0819679C16EEE21A00B79831 /* QuestionGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionGenerator.m; sourceTree = "<group>"; };
+		0819679E16EEE85700B79831 /* fabflix.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = fabflix.sqlite3; path = Fabflix/fabflix.sqlite3; sourceTree = "<group>"; };
 		0828CAE316ED983F0033B623 /* navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar.png; sourceTree = "<group>"; };
 		0828CAE416ED983F0033B623 /* navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar@2x.png"; sourceTree = "<group>"; };
 		0828CAE716EDA1940033B623 /* quiznavbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quiznavbar.png; sourceTree = "<group>"; };
@@ -107,6 +112,7 @@
 				08AA2ADF16EA715D00CADC66 /* Fabflix */,
 				08AA2AD816EA715D00CADC66 /* Frameworks */,
 				08AA2AD716EA715D00CADC66 /* Products */,
+				0819679E16EEE85700B79831 /* fabflix.sqlite3 */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,6 +197,8 @@
 				080CBB5E16EAB8AC00474315 /* Quiz.m */,
 				0E2CC3C816EC8F0800D20F51 /* QuizQuestion.h */,
 				0E2CC3C916EC8F0800D20F51 /* QuizQuestion.m */,
+				0819679B16EEE21A00B79831 /* QuestionGenerator.h */,
+				0819679C16EEE21A00B79831 /* QuestionGenerator.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -276,6 +284,7 @@
 				08F8F99B16EDD8C200EF5C6E /* background@2x.png in Resources */,
 				08F8F99E16EE5ED500EF5C6E /* Icon.png in Resources */,
 				08F8F99F16EE5ED500EF5C6E /* Icon@2x.png in Resources */,
+				0819679F16EEE85700B79831 /* fabflix.sqlite3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +303,7 @@
 				080CBB5F16EAB8AC00474315 /* Quiz.m in Sources */,
 				0E2CC3CA16EC8F0800D20F51 /* QuizQuestion.m in Sources */,
 				0828CAED16EDC4030033B623 /* BButton.m in Sources */,
+				0819679D16EEE21A00B79831 /* QuestionGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

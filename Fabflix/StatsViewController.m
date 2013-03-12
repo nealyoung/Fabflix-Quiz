@@ -59,13 +59,13 @@
     
     // Show time spent
     double totalTime = [prefs floatForKey:@"totalTime"];
-    self.timeSpentLabel.text = [NSString stringWithFormat:@"Time Spent: %.2f seconds", totalTime];
+    self.timeSpentLabel.text = [NSString stringWithFormat:@"Time Spent: %.1f seconds", totalTime];
 
     // Show average time per question
     NSInteger totalAnswers = [prefs integerForKey:@"totalAnswers"];
 
     if (totalAnswers != 0) {
-        self.timePerQuestionLabel.text = [NSString stringWithFormat:@"Time per Question: %.2f seconds", (totalTime / totalAnswers)];
+        self.timePerQuestionLabel.text = [NSString stringWithFormat:@"Time per Question: %.1f seconds", (totalTime / totalAnswers)];
     } else {
         self.timePerQuestionLabel.text = [NSString stringWithFormat:@"Time per Question: 0.0 seconds"];
     }

@@ -9,6 +9,7 @@
 #import "Quiz.h"
 
 @interface Quiz () {
+    QuestionGenerator *questionGenerator;
     QuizQuestion *currentQuestion;
     double lastQuestionAnsweredTime;
 }
@@ -22,6 +23,8 @@
     
     if (self) {
         // Generate the first question in the quiz
+        questionGenerator = [[QuestionGenerator alloc] init];
+        [questionGenerator newQuestion];
         [self nextQuestion];
     }
     
@@ -61,6 +64,8 @@
 - (void)nextQuestion {
     // Do database stuffs here
     // Generate questions
+    
+    /*
     int r = arc4random() % 4;
     
     if (r == 0) {
@@ -80,6 +85,9 @@
                                                          answers:[NSArray arrayWithObjects:@"Colin Farrell", @"Mel Gibson", @"Brad Pitt", @"Viggo Mortensen", nil]
                                                      answerIndex:0];
     }
+     */
+    
+    currentQuestion = [questionGenerator newQuestion];
 }
 
 - (void)finish {
