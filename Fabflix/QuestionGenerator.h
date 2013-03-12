@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "QuizQuestion.h"
 
+#define QUIZ_QUESTION_DIRECTOR 0
+#define QUIZ_QUESTION_YEAR 1
+
 @interface QuestionGenerator : NSObject
 
 - (QuizQuestion *)newQuestion;

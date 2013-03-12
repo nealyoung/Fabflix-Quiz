@@ -7,7 +7,6 @@
 //
 
 #import "QuizViewController.h"
-#define TIME_LIMIT 30.0
 
 @interface QuizViewController () {
     NSTimer *timer;

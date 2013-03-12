@@ -10,6 +10,8 @@
 #import "Quiz.h"
 #import "BButton.h"
 
+#define TIME_LIMIT 30.0
+
 @interface QuizViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *questionLabel;
