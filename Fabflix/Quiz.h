@@ -17,7 +17,7 @@
 - (NSString *)getQuestion;
 - (NSArray *)getAnswers;
 - (NSInteger)getAnswerIndex;
-- (BOOL)submitAnswer:(NSInteger)answerIndex;
+- (BOOL)submitAnswer:(NSInteger)answerIndex time:(double)time;
 - (void)nextQuestion;
 - (void)finish;
 

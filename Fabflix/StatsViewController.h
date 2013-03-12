@@ -13,6 +13,9 @@
 
 @property (strong, nonatomic) IBOutlet UINavigationItem *navigationBarTitle;
 @property (strong, nonatomic) IBOutlet UILabel *quizzesTakenLabel;
+@property (strong, nonatomic) IBOutlet UILabel *timePerQuestionLabel;
+@property (strong, nonatomic) IBOutlet UILabel *timeSpentLabel;
+@property (strong, nonatomic) IBOutlet UILabel *answersLabel;
 @property (strong, nonatomic) IBOutlet UILabel *correctAnswersLabel;
 @property (strong, nonatomic) IBOutlet UILabel *incorrectAnswersLabel;
 

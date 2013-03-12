@@ -33,12 +33,14 @@
     self.navigationBarTitle.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar.png"]];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.resetStatsButton.color = [UIColor colorWithRed:.85 green:.22 blue:.22 alpha:1.0];
+    
+    [self reloadStats];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
+    
     [self reloadStats];
 }
 
@@ -53,6 +55,22 @@
     // Show number of quizzes taken
     NSInteger quizzesTaken = [prefs integerForKey:@"quizzesTaken"];
     self.quizzesTakenLabel.text = [NSString stringWithFormat:@"Quizzes Taken: %d", quizzesTaken];
+    
+    // Show time spent
+    double totalTime = [prefs floatForKey:@"totalTime"];
+    self.timeSpentLabel.text = [NSString stringWithFormat:@"Time Spent: %.2f seconds", totalTime];
+
+    // Show average time per question
+    NSInteger totalAnswers = [prefs integerForKey:@"totalAnswers"];
+
+    if (totalAnswers != 0) {
+        self.timePerQuestionLabel.text = [NSString stringWithFormat:@"Time per Question: %.2f seconds", (totalTime / totalAnswers)];
+    } else {
+        self.timePerQuestionLabel.text = [NSString stringWithFormat:@"Time per Question: 0.0 seconds"];
+    }
+    
+    // Show number of answers
+    self.answersLabel.text = [NSString stringWithFormat:@"Answers: %d", totalAnswers];
     
     // Show number of correct answers
     NSInteger correctAnswers = [prefs integerForKey:@"correctAnswers"];
@@ -74,21 +92,25 @@
     [alert show];
 }
 
+- (void)reset {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    [prefs removeObjectForKey:@"quizzesTaken"];
+    [prefs removeObjectForKey:@"totalTime"];
+    [prefs removeObjectForKey:@"totalAnswers"];
+    [prefs removeObjectForKey:@"correctAnswers"];
+    [prefs removeObjectForKey:@"incorrectAnswers"];
+    
+    [self reloadStats];
+}
+
+#pragma mark - UIAlertViewDelegate
+
 // Reset stats confirmation alert
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if(buttonIndex == 1) {
         [self reset];
     }
-}
-
-- (void)reset {
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    
-    [prefs removeObjectForKey:@"quizzesTaken"];
-    [prefs removeObjectForKey:@"correctAnswers"];
-    [prefs removeObjectForKey:@"incorrectAnswers"];
-    
-    [self reloadStats];
 }
 
 @end

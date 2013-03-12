@@ -12,6 +12,9 @@
     NSTimer *timer;
     Quiz *quiz;
     double time;
+    
+    // Timer for each question
+    double questionStartTime;
 }
 
 - (void)loadNextQuestion;
@@ -101,12 +104,14 @@
     [self.answer1 setTitle:answers[1] forState:UIControlStateNormal];
     [self.answer2 setTitle:answers[2] forState:UIControlStateNormal];
     [self.answer3 setTitle:answers[3] forState:UIControlStateNormal];
+    
+    questionStartTime = time;
 }
 
 - (IBAction)selectAnswer:(id)sender {
     NSInteger answer = [sender tag];
     
-    if ([quiz submitAnswer:answer]) {
+    if ([quiz submitAnswer:answer time:time]) {
         self.answerLabel.textColor = [UIColor colorWithRed:0.1 green:0.65 blue:0.05 alpha:1.0];
         self.answerLabel.text = @"Correct!";
     } else {

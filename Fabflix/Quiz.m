@@ -10,6 +10,7 @@
 
 @interface Quiz () {
     QuizQuestion *currentQuestion;
+    double lastQuestionAnsweredTime;
 }
 
 @end
@@ -39,13 +40,15 @@
     return currentQuestion.answerIndex;
 }
 
-- (BOOL)submitAnswer:(NSInteger)answerIndex {
+- (BOOL)submitAnswer:(NSInteger)answerIndex time:(double)time {
     // Check if the submitted answer is correct
     BOOL correctAnswer = (answerIndex == currentQuestion.answerIndex);
     
     // Increment total number of questions
     self.numQuestions++;
     
+    lastQuestionAnsweredTime = time;
+
     if (correctAnswer) {
         // Increment number of correct questions
         self.numCorrect++;
@@ -87,6 +90,18 @@
     quizzesTaken++;
     
     [prefs setInteger:quizzesTaken forKey:@"quizzesTaken"];
+    
+    // Update total time spent
+    double totalTime = [prefs integerForKey:@"totalTime"];
+    totalTime += lastQuestionAnsweredTime;
+    
+    [prefs setFloat:totalTime forKey:@"totalTime"];
+    
+    // Update total number of answers
+    NSInteger totalAnswers = [prefs integerForKey:@"totalAnswers"];
+    totalAnswers += self.numQuestions;
+    
+    [prefs setInteger:totalAnswers forKey:@"totalAnswers"];
     
     // Update number of correct answers
     NSInteger correctAnswers = [prefs integerForKey:@"correctAnswers"];
