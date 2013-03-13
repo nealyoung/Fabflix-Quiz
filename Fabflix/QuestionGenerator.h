@@ -8,9 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import "QuizQuestion.h"
+#import "sqlite3.h"
 
-#define QUIZ_QUESTION_DIRECTOR 0
-#define QUIZ_QUESTION_YEAR 1
+typedef enum {
+    QuizQuestionTypeDirector = 0,
+    QuizQuestionTypeYear,
+    QuizQuestionTypeStarInMovie
+} QuizQuestionType;
+
+typedef struct {
+    NSInteger id;
+    char *title;
+} Movie;
 
 @interface QuestionGenerator : NSObject
 
