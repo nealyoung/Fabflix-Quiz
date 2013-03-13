@@ -62,6 +62,7 @@
     time = 0.0;
     
     [self loadNextQuestion];
+    
     self.questionLabel.text = quiz.getQuestion;
     self.answerLabel.text = @"";
 }

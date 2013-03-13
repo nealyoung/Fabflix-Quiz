@@ -20,12 +20,11 @@
 
 - (id)init {
     self = [super init];
-    
+        
     if (self) {
         // Generate the first question in the quiz
         questionGenerator = [[QuestionGenerator alloc] init];
-        [questionGenerator newQuestion];
-        [self nextQuestion];
+        //currentQuestion = [questionGenerator newQuestion];
     }
     
     return self;
@@ -65,31 +64,11 @@
     // Do database stuffs here
     // Generate questions
     
-    /*
-    int r = arc4random() % 4;
-    
-    if (r == 0) {
-        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"In what year was 'Titanic' released?"
-                                                         answers:[NSArray arrayWithObjects:@"1995", @"2002", @"1998", @"2006", nil]
-                                                     answerIndex:2];
-    } else if (r == 1) {
-        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"In what movie did Pierce Brosnan and Judy Dench appear together?"
-                                                         answers:[NSArray arrayWithObjects:@"Batman Begins", @"Alone in the Dark", @"Catwoman", @"Die Another Day", nil]
-                                                     answerIndex:3];
-    } else if (r == 2) {
-        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"Who directed 'Eurotrip'?"
-                                                         answers:[NSArray arrayWithObjects:@"Joel Schumacher", @"Jeff Schaffer", @"Jon Favreau", @"Ben Stiller", nil]
-                                                     answerIndex:1];
-    } else {
-        currentQuestion = [[QuizQuestion alloc] initWithQuestion:@"Who starred in 'Alexander'?"
-                                                         answers:[NSArray arrayWithObjects:@"Colin Farrell", @"Mel Gibson", @"Brad Pitt", @"Viggo Mortensen", nil]
-                                                     answerIndex:0];
-    }
-     */
-    
+    NSLog(@"NextQuestion Called");
     currentQuestion = [questionGenerator newQuestion];
 }
 
+// Save statistics from the quiz, should be called after quiz is finshed
 - (void)finish {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
