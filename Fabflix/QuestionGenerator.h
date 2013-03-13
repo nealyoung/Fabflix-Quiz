@@ -13,12 +13,15 @@
 typedef enum {
     QuizQuestionTypeDirector = 0,
     QuizQuestionTypeYear,
-    QuizQuestionTypeStarInMovie
+    QuizQuestionTypeStarInMovie,
+    QuizQuestionTypeStarNotInMovie,
+    QuizQuestionTypeStarsAppearTogether
 } QuizQuestionType;
 
 typedef struct {
     NSInteger id;
     char *title;
+    char *director;
 } Movie;
 
 @interface QuestionGenerator : NSObject

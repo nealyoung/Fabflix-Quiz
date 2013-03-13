@@ -13,6 +13,7 @@
 }
 
 - (Movie)randomMovie;
+- (Movie)randomMovieWithStars:(NSInteger)numStars;
 
 @end
 
@@ -34,7 +35,7 @@
 
 - (QuizQuestion *)newQuestion {
     sqlite3_stmt *statement;
-    QuizQuestionType questionType = arc4random() % 3;
+    QuizQuestionType questionType = arc4random() % 4;
     
     // TODO
     // correct answers can be repeated
@@ -177,6 +178,112 @@
         
         sqlite3_finalize(statement);
         return quizQuestion;
+    } else if (questionType == QuizQuestionTypeStarNotInMovie) {
+        Movie movie = [self randomMovieWithStars:3];
+        
+        NSInteger movieID = movie.id;
+        NSString *movieTitle = [NSString stringWithUTF8String:movie.title];
+        
+        // Get correct answer
+        NSString *query = [NSString stringWithFormat:@"SELECT stars.first_name, stars.last_name, stars.id AS s FROM stars, stars_in_movies WHERE NOT EXISTS (SELECT stars.id FROM stars, stars_in_movies WHERE stars_in_movies.star_id=s AND stars_in_movies.movie_id=%d) ORDER BY RANDOM() LIMIT 1;", movie.id];
+        
+        NSString *starFirstName, *starLastName, *answer;
+        
+        if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
+            if (sqlite3_step(statement) == SQLITE_ROW) {
+                char *nameChars = (char *)sqlite3_column_text(statement, 0);
+                starFirstName = [NSString stringWithUTF8String:nameChars];
+                
+                nameChars = (char *)sqlite3_column_text(statement, 1);
+                starLastName = [NSString stringWithUTF8String:nameChars];
+                
+                answer = [NSString stringWithFormat:@"%@ %@", starFirstName, starLastName];
+            }
+        }
+        
+        // Get incorrect answers
+        query = [NSString stringWithFormat:@"SElECT stars.first_name, stars.last_name FROM stars, stars_in_movies WHERE stars_in_movies.star_id=stars.id AND stars_in_movies.movie_id=%d ORDER BY RANDOM() LIMIT 3;", movieID];
+        
+        NSMutableArray *answerOptions = [[NSMutableArray alloc] init];
+        
+        if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
+            while (sqlite3_step(statement) == SQLITE_ROW) {
+                char *nameChars = (char *)sqlite3_column_text(statement, 0);
+                starFirstName = [NSString stringWithUTF8String:nameChars];
+                
+                nameChars = (char *)sqlite3_column_text(statement, 1);
+                starLastName = [NSString stringWithUTF8String:nameChars];
+                
+                // Add the star's name to the array of answer options
+                [answerOptions addObject:[NSString stringWithFormat:@"%@ %@", starFirstName, starLastName]];
+            }
+        }
+        
+        // Insert the correct answer at a random index
+        NSString *question = [NSString stringWithFormat:@"Which star was not in '%@'?", movieTitle];
+        
+        int answerIndex = arc4random() % 4;
+        [answerOptions insertObject:answer atIndex:answerIndex];
+        
+        QuizQuestion *quizQuestion = [[QuizQuestion alloc] initWithQuestion:question
+                                                                    answers:answerOptions
+                                                                answerIndex:answerIndex];
+        
+        sqlite3_finalize(statement);
+        return quizQuestion;
+    } else if (questionType == QuizQuestionTypeStarsAppearTogether) {
+        Movie movie = [self randomMovie];
+        
+        NSInteger movieID = movie.id;
+        NSString *movieTitle = [NSString stringWithUTF8String:movie.title];
+        
+        // Get correct answer
+        NSString *query = [NSString stringWithFormat:@"SELECT stars.first_name, stars.last_name, stars.id AS s FROM stars, stars_in_movies WHERE NOT EXISTS (SELECT stars.id FROM stars, stars_in_movies WHERE stars_in_movies.star_id=s AND stars_in_movies.movie_id=%d) ORDER BY RANDOM() LIMIT 1;", movie.id];
+        
+        NSString *starFirstName, *starLastName, *answer;
+        
+        if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
+            if (sqlite3_step(statement) == SQLITE_ROW) {
+                char *nameChars = (char *)sqlite3_column_text(statement, 0);
+                starFirstName = [NSString stringWithUTF8String:nameChars];
+                
+                nameChars = (char *)sqlite3_column_text(statement, 1);
+                starLastName = [NSString stringWithUTF8String:nameChars];
+                
+                answer = [NSString stringWithFormat:@"%@ %@", starFirstName, starLastName];
+            }
+        }
+        
+        // Get incorrect answers
+        query = [NSString stringWithFormat:@"SElECT stars.first_name, stars.last_name FROM stars, stars_in_movies WHERE stars_in_movies.star_id=stars.id AND stars_in_movies.movie_id=%d ORDER BY RANDOM() LIMIT 3;", movieID];
+        
+        NSMutableArray *answerOptions = [[NSMutableArray alloc] init];
+        
+        if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
+            while (sqlite3_step(statement) == SQLITE_ROW) {
+                char *nameChars = (char *)sqlite3_column_text(statement, 0);
+                starFirstName = [NSString stringWithUTF8String:nameChars];
+                
+                nameChars = (char *)sqlite3_column_text(statement, 1);
+                starLastName = [NSString stringWithUTF8String:nameChars];
+                
+                // Add the star's name to the array of answer options
+                [answerOptions addObject:[NSString stringWithFormat:@"%@ %@", starFirstName, starLastName]];
+            }
+        }
+        
+        // Insert the correct answer at a random index
+        NSString *question = [NSString stringWithFormat:@"Which star was not in '%@'?", movieTitle];
+        
+        int answerIndex = arc4random() % 4;
+        [answerOptions insertObject:answer atIndex:answerIndex];
+        
+        QuizQuestion *quizQuestion = [[QuizQuestion alloc] initWithQuestion:question
+                                                                    answers:answerOptions
+                                                                answerIndex:answerIndex];
+        
+        sqlite3_finalize(statement);
+        return quizQuestion;
     }
     
     return nil;
@@ -184,7 +291,7 @@
 
 - (Movie)randomMovie {
     sqlite3_stmt *statement;
-    NSString *query = @"SELECT id, title FROM movies ORDER BY RANDOM() LIMIT 1;";
+    NSString *query = @"SELECT id, title, director FROM movies ORDER BY RANDOM() LIMIT 1;";
     
     Movie movie;
         
@@ -193,11 +300,34 @@
             // Get the id and title of the first
             movie.id = sqlite3_column_int(statement, 0);
             
-            // Duplicate the return string so it is not freed after calling sqlite3_finalize
+            // Duplicate the return strings so they are not freed after calling sqlite3_finalize
             movie.title = strdup((char *)sqlite3_column_text(statement, 1));
+            movie.director = strdup((char *)sqlite3_column_text(statement, 2));
         }
     }
         
+    sqlite3_finalize(statement);
+    return movie;
+}
+
+// Returns a random movie with numStars or more stars
+- (Movie)randomMovieWithStars:(NSInteger)numStars {
+    sqlite3_stmt *statement;
+    NSString *query = [NSString stringWithFormat:@"SELECT id, title, director FROM movies, stars_in_movies WHERE (SELECT count(stars_in_movies.star_id) FROM stars_in_movies WHERE stars_in_movies.movie_id=movies.id) >= %d ORDER BY RANDOM() LIMIT 1;", numStars];
+    
+    Movie movie;
+    
+    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
+        if (sqlite3_step(statement) == SQLITE_ROW) {
+            // Get the id and title of the first
+            movie.id = sqlite3_column_int(statement, 0);
+            
+            // Duplicate the return strings so they are not freed after calling sqlite3_finalize
+            movie.title = strdup((char *)sqlite3_column_text(statement, 1));
+            movie.director = strdup((char *)sqlite3_column_text(statement, 2));
+        }
+    }
+    
     sqlite3_finalize(statement);
     return movie;
 }
