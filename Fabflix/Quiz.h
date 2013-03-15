@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QuestionGenerator.h"
 #import "QuizQuestion.h"
+#import "QuizItem.h"
+#import "FMDatabase.h"
+#import "QuestionGenerator.h"
 
 @interface Quiz : NSObject
 
@@ -21,5 +23,9 @@
 - (BOOL)submitAnswer:(NSInteger)answerIndex time:(double)time;
 - (void)nextQuestion;
 - (void)finish;
+
+
+
+
 
 @end

@@ -7,9 +7,10 @@
 //
 
 #import "Quiz.h"
+#import "QuestionGenerator.h"
 
 @interface Quiz () {
-    QuestionGenerator *questionGenerator;
+    QuestionGenerator *generator;
     QuizQuestion *currentQuestion;
     double lastQuestionAnsweredTime;
 }
@@ -17,14 +18,13 @@
 @end
 
 @implementation Quiz
-
+ 
 - (id)init {
     self = [super init];
-        
+    
     if (self) {
         // Generate the first question in the quiz
-        questionGenerator = [[QuestionGenerator alloc] init];
-        //currentQuestion = [questionGenerator newQuestion];
+        generator = [[QuestionGenerator alloc] init];
     }
     
     return self;
@@ -50,7 +50,7 @@
     self.numQuestions++;
     
     lastQuestionAnsweredTime = time;
-
+    
     if (correctAnswer) {
         // Increment number of correct questions
         self.numCorrect++;
@@ -61,11 +61,7 @@
 }
 
 - (void)nextQuestion {
-    // Do database stuffs here
-    // Generate questions
-    
-    NSLog(@"NextQuestion Called");
-    currentQuestion = [questionGenerator newQuestion];
+    currentQuestion = [generator newQuestion];
 }
 
 // Save statistics from the quiz, should be called after quiz is finshed

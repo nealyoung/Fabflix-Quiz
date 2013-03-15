@@ -100,7 +100,7 @@
     self.questionLabel.text = [quiz getQuestion];
     
     NSArray *answers = [quiz getAnswers];
-
+    
     [self.answer0 setTitle:answers[0] forState:UIControlStateNormal];
     [self.answer1 setTitle:answers[1] forState:UIControlStateNormal];
     [self.answer2 setTitle:answers[2] forState:UIControlStateNormal];

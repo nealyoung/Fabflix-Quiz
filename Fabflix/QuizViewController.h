@@ -10,7 +10,7 @@
 #import "Quiz.h"
 #import "BButton.h"
 
-#define TIME_LIMIT 30.0
+#define TIME_LIMIT 180.0
 
 @interface QuizViewController : UIViewController
 
