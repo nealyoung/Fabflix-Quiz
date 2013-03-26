@@ -32,27 +32,38 @@
 - (QuizQuestion *)newQuestion {
     QuizQuestion *currentQuestion;
     int questionType = arc4random() % 10;
-        
-    if (questionType == 0) {
-        currentQuestion = [self getQuestionTypeDirector];
-    } else if (questionType == 1) {
-        currentQuestion = [self getQuestionTypeYear];
-    } else if (questionType == 2) {
-        currentQuestion = [self getQuestionTypeStarInMovie];
-    } else if (questionType == 3) {
-        currentQuestion = [self getQuestionTypeStarNotInMovie];
-    } else if (questionType == 4) {
-        currentQuestion = [self getQuestionTypeStarsAppearTogether];
-    } else if (questionType == 5) {
-        currentQuestion = [self getQuestionTypeDirectorForStar];
-    } else if (questionType == 6) {
-        currentQuestion = [self getQuestionTypeNotDirectorForStar];
-    } else if (questionType == 7) {
-        currentQuestion = [self getQuestionTypeStarAppearBothMovies];
-    } else if (questionType == 8) {
-        currentQuestion = [self getQuestionTypeStarNotAppearWithStar];
-    } else if (questionType == 9) {
-        currentQuestion = [self getQuestionTypeDirectorForStarInYear];
+    
+    switch (questionType) {
+        case 0:
+            currentQuestion = [self getQuestionTypeDirector];
+            break;
+        case 1:
+            currentQuestion = [self getQuestionTypeYear];
+            break;
+        case 2:
+            currentQuestion = [self getQuestionTypeStarInMovie];
+            break;
+        case 3:
+            currentQuestion = [self getQuestionTypeStarNotInMovie];
+            break;
+        case 4:
+            currentQuestion = [self getQuestionTypeStarsAppearTogether];
+            break;
+        case 5:
+            currentQuestion = [self getQuestionTypeDirectorForStar];
+            break;
+        case 6:
+            currentQuestion = [self getQuestionTypeNotDirectorForStar];
+            break;
+        case 7:
+            currentQuestion = [self getQuestionTypeStarAppearBothMovies];
+            break;
+        case 8:
+            currentQuestion = [self getQuestionTypeStarNotAppearWithStar];
+            break;
+        case 9:
+            currentQuestion = [self getQuestionTypeDirectorForStarInYear];
+            break;
     }
     
     return currentQuestion;
@@ -388,7 +399,7 @@
 
 //Helper Method that takes a the question in string format, the answer, and an array of incorrect answers.
 - (QuizQuestion *)generateQuestion:(NSString *)question withCorrectAnswer:(NSString *)answer incorrectAnswers:(NSMutableArray *)answers {
-    int answerIndex = arc4random() % 3;
+    int answerIndex = arc4random() % 4;
     [answers insertObject:answer atIndex:answerIndex];
     
     QuizQuestion *quizQuestion = [[QuizQuestion alloc] initWithQuestion:question answers:answers answerIndex:answerIndex];

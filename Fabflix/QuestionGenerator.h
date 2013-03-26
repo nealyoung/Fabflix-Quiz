@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QuizItem.h"
-#import "QuizQuestion.h"
 #import "FMDatabase.h"
 #import "FMResultSet.h"
+#import "QuizItem.h"
+#import "QuizQuestion.h"
 
 @interface QuestionGenerator : NSObject
 
